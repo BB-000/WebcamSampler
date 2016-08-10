@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Web Audio </title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main.css"/>
+    <script src="js/jquery.js"  ></script>
+
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="header">
+            <div class="allow">Allow access from webcam to start demo! Works in Desktop Google Chrome and Opera</div>
+            <div class="instructions">Touch the drums! <strong>Click them</strong> with the mouse to change sounds!!!</div>
+            <div class="browsersWithVideo">This demo lets you control stuff using motion detection in your browser. Install
+                <a href="https://www.google.com/landing/chrome/beta/" target="_blank">Chrome Beta</a> to play.
+            </div>
+        </div>
+
+        <div id="content">
+
+            <video id="webcam" autoplay width="640" height="480"></video>
+
+            <!--<video id="video-demo" controls="controls" poster="videos/jsdetection.jpg" width="640" height="480"-->
+                   <!--onclick="if(/Android/.test(navigator.userAgent))this.play();">-->
+                <!--<source src="videos/jsdetection.mp4" type="video/mp4"/>-->
+                <!--<source src="videos/jsdetection.ogg" type="video/ogg"/>-->
+                <!--<source src="videos/jsdetection.webm" type="video/webm"/>-->
+                <!--Your browser doesn't support the HTML5 video tag.-->
+            </video>
+
+            <canvas id="canvas-source" width="640" height="480"></canvas>
+            <canvas id="canvas-highlights" width="640" height="480"></canvas>
+            <canvas id="canvas-blended" width="640" height="480"></canvas>
+
+            <div id="hotSpots">
+                <img id="one" src="images/sound0.jpg">
+                <img id="two" src="images/sound2.jpg">
+                <img id="three" src="images/sound3.jpg">
+
+            </div>
+
+                <div class="controlz">
+
+                    <p>MASTER</p><input id="gainSlider" type="range" min="0" max="1" step="0.05" value="0.5"/></input>
+                    <p>TIME</p><input id="delayTime" type="range" min="0" max="1" step="0.01" value="0"/></input>
+                    <p>FEEDBACK</p><input id="delayFeedback" type="range" min="0" max="0.9" step="0.05" value="0"/></input>
+                    <p>FILTER</p><input id="fCutoff" type="range" min="20" max="16000" step="5" value="1000"/></input>
+
+                </div>
+
+
+            <div class="introduction">
+                <div class="introWrapper">
+                    <p>This demo lets you control an audio sampler with the webcam.</p>
+                    <p>For this webpage to work please use a browser that supports 'getUserMedia'
+                    <br/> (Chrome or Opera)<br/>
+                    And allow them access to the webcam and microphone <br/><br/>
+                    Keep webcam still to avoid unwanted triggering
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading">Loading assets...</div>
+
+        <div class="browsers">
+            <p>Currently this browser does not support </p>
+
+             <a href="https://developer.mozilla.org/en-US/docs/NavigatorUserMedia.getUserMedia" target="_blank">getUserMedia</a>
+            <p>Please view on the latest versions of Chrome or Opera on a desktop</p>
+        </div>
+
+        <div id="footer">
+            <div class="blurb">By Barnabee , Uses 'JS-MotionDetection' by <a href="https://github.com/ReallyGood/js-motion-detection" target="_blank">ReallyGood</a></div>
+        </div>
+
+    </div>
+
+    <script src="js/bufferloader.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
